@@ -17,8 +17,23 @@ A standard baseload spot price is no longer an accurate benchmark for wind portf
 * **Transformations:** Resampling mixed-interval data (15-min and 60-min) to hourly standard, handling missing hours, and calculating volume-weighted revenues.
 * **Output:** Cleaned `.xlsx` dataset ready for PowerBI/Excel dashboarding and portfolio analytics.
 
+## Outputs Generated
+Running the script automatically generates the following portfolio assets:
+1. `wind_capture_analysis.xlsx`: A multi-tab Excel dashboard dataset (Raw Hourly, Daily Summary, Monthly Summary).
+2. `cannibalization_curve.png`: A scatter plot with a linear regression trendline proving the inverse correlation between wind volume and spot prices.
+3. `hourly_price_heatmap.png`: A chronological heatmap identifying optimal charge/discharge windows for Battery Energy Storage Systems (BESS).
+
+### Visual Analytics
+*(Note: Ensure your .png files are pushed to GitHub in the same folder for these to display)*
+
+**1. The Cannibalization Effect**
+![Cannibalization Curve](cannibalization_curve.png)
+
+**2. BESS Opportunity Heatmap**
+![Hourly Price Heatmap](hourly_price_heatmap.png)
+
 ## How to Run
 1. Clone this repository.
 2. Install dependencies: `pip install -r requirements.txt`
 3. Request a free API token from `transparency@entsoe.eu` and place it in a `.env` file as `ENTSOE_TOKEN=your_token`.
-4. Run `python capture_price_analysis.py`.
+4. Run `python capture_price_analysis.py`
